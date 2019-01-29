@@ -1,0 +1,85 @@
+﻿@model Caristaniyaan.Dto.HomeViewModal
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<section class="banner">
+    <div class="box h-200 bg-image-13">
+        <div class="box-overlay text-left">
+            <div class="container">
+                <h1 class="box-heading box-heading-md p-b-0"></h1>
+                <ul class="breadcrumbs">
+                    <li><a href="home.aspx"></a></li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="product bg-pri-c relative">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 col-md-3">
+                <div class="box-1">
+                    <h3 class="m-b-0">Categories</h3>
+                    <ul class="list-g2">
+                        <li><a href="#">Brakes</a></li>
+                        <li class="active">Wheels</li>
+                        <li><a href="#">Tyres</a></li>
+                        <li><a href="#">Bumpers</a></li>
+                        <li><a href="#">Calipers</a></li>
+                        <li><a href="#">Car Covers</a></li>
+                        <li><a href="#">Carpet Kits</a></li>
+                        <li><a href="#">Components</a></li>
+                        <li><a href="#">Exhaust Tips</a></li>
+                        <li><a href="#">floor Mats</a></li>
+                        <li><a href="#">Grilles</a></li>
+                        <li><a href="#">Hand Brakes</a></li>
+                        <li><a href="#">Liners</a></li>
+                        <li><a href="#">Mirrors</a></li>
+                        <li><a href="#">Set Cover</a></li>
+                        <li><a href="#">Seats</a></li>
+                        <li><a href="#">Shocks</a></li>
+                        <li><a href="#">Struys</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm-8 col-md-9">
+                <div class="row">
+                    @if (Model.product != null)
+                    {
+                        foreach (var prod in Model.product)
+                        {
+                            <div class="col-sm-6 col-md-4">
+                                <div class="box">
+                                    <a class="box-img" href="@Url.Action("Product/"+prod.Id,"Home")"><img src="@prod.image_url" alt="image"></a>
+                                    <div class="box-body">
+                                        <h4 class="box-heading"><a href="ProductDetails.aspx" class="border-left-5">@prod.name</a></h4>
+                                        <p class="color-9">@prod.model</p>
+                                    </div>
+                                    <div class="box-footer"><div class="box-price">@prod.price</div></div>
+                                </div>
+                            </div>
+                        }
+                    }
+                    else {
+                        <p>No Item Found</p>   
+                    }
+
+
+                </div>
+                <nav aria-label="Page navigation">
+                    <ul class="pagination ht-pagination">
+                        <li><a href="#" aria-label="Previous"><i class="fa fa-chevron-left"></i></a></li>
+                        <li><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li><a href="#" aria-label="Next"><i class="fa fa-chevron-right"></i></a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>

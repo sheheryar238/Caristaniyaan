@@ -1,0 +1,72 @@
+﻿@model Caristaniyaan.Dto.demand
+@{
+    ViewBag.Title = "Autopartondemand";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<section class="banner">
+    <div class="box h-200 bg-image-13">
+        <div class="box-overlay text-left">
+            <div class="container">
+                <h1 class="box-heading box-heading-md p-b-0">AutoPart-On-Demand</h1>
+                <ul class="breadcrumbs">
+                    <li><a href="home.aspx">Home</a></li>
+                    <li>AutoPart-On-Demand</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="bg-pri-c relative bg-f5">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 col-sm-offset-3">
+                <div class="box-1 p-50">
+                    <div class="alert alert-success collapse fade">
+                        <button type="button" class="close" data-dismiss="alert">×</button>
+                        <div class="alert-text">Default Success Message.</div>
+                    </div>
+                    <div class="alert alert-danger collapse fade">
+                        <button type="button" class="close" data-dismiss="alert">×</button>
+                        <div class="alert-text">Default Error Message.</div>
+                    </div>
+                    <!-- Nav tabs --><!-- Tab panes -->
+                    <h3 class="line-default f-30 selected">Request-an-AutoPart</h3>
+                    @using (Html.BeginForm("demand", "Requests", FormMethod.Post, new { enctype = "multipart/form-data", id = "demandForm", @class = "form-horizontal" }))
+                    {
+                        @Html.ValidationMessageFor(c => c.modalYear)
+                        @Html.TextBoxFor(c => c.modalYear, new { @class = "form-item", id = "modalYear", placeholder = "Modal Year" })
+
+                        @Html.ValidationMessageFor(c => c.carInfo)
+                        @Html.TextBoxFor(c => c.carInfo, new { @class = "form-item", id = "carInfo", placeholder = "Car info" })
+
+                        @Html.ValidationMessageFor(c => c.name)
+                        @Html.TextBoxFor(c => c.name, new { @class = "form-item", id = "name", placeholder = "Your name" })
+
+                        @Html.ValidationMessageFor(c => c.phonenumber)
+                        @Html.TextBoxFor(c => c.phonenumber, new { @class = "form-item", id = "phone", placeholder = "Phone" })
+
+                        @Html.ValidationMessageFor(c => c.email)
+                        @Html.TextBoxFor(c => c.email, new { @class = "form-item", id = "email", placeholder = "Email" })
+
+                        @Html.ValidationMessageFor(c => c.itemName)
+                        @Html.TextBoxFor(c => c.itemName, new { @class = "form-item", id = "itemName", placeholder = "Item Name or Service" })
+
+                        @Html.ValidationMessageFor(c => c.itemDetail)
+                        @Html.TextAreaFor(c => c.itemDetail, new { @class = "form-item", id = "itemDetail", placeholder = "Message" })
+
+                        @Html.TextBoxFor(c => c.itemImage, new { type = "file", id = "img", accept = "image/*" })
+                        @Html.ValidationMessageFor(c => c.itemImage)
+
+
+                        <input type="button" class="btn bg-dc4c46" id="demandbtn" value="Submit">
+                        <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+}

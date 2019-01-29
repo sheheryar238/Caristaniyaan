@@ -1,0 +1,206 @@
+﻿@model Caristaniyaan.Dto.productViewModal
+@{
+    ViewBag.Title = "Product";
+    Layout = "~/Views/Shared/_adminLayout.cshtml";
+}
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            Products
+            <small>Add or view all your products</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="@Url.Action("Index","Admin")"><i class="fa fa-dashboard"></i>Home</a></li>
+            <li><a href="@Url.Action("Products","Admin")">Products</a></li>
+        </ol>
+    </section>
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <!-- right column -->
+            <div class="col-md-12">
+                <!-- Horizontal Form -->
+                <div class="box box-info" id="formBox">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">Products</h3>
+                    </div>
+                    <div class="alert alert-success collapse fade">
+                        <button type="button" class="close" data-dismiss="alert">×</button>
+                        <div class="alert-text">Successfully completed your action.</div>
+                    </div>
+                    <div class="alert alert-danger collapse fade">
+                        <button type="button" class="close" data-dismiss="alert">×</button>
+                        <div class="alert-text">Successfully completed your action.</div>
+                    </div>
+                    <!-- /.box-header -->
+                    <!-- form start -->
+                    @using (Html.BeginForm("Add", "Product", FormMethod.Post, new { enctype = "multipart/form-data", id = "productForm", @class = "form-horizontal" }))
+                    {
+                    <div class="box-body">
+                        <div class="col-md-12">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <div class="col-md-12">
+                                        @Html.LabelFor(pr => pr.name, new { @class = "control-label" })
+                                        @Html.TextBoxFor(pr => pr.name, new { @class = "form-control", id = "productName", placeholder = "Enter product name" })
+                                        @Html.ValidationMessageFor(pr => pr.name)
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <div class="col-md-12">
+                                        @Html.LabelFor(pr => pr.BrandId, new { @class = "control-label" })
+                                        @Html.DropDownListFor(pr => pr.BrandId, new SelectList(Model.brand, "Id", "name"), "-- Select --", new { @class = "form-control", id = "brandName" })
+                                        @Html.ValidationMessageFor(pr => pr.BrandId)
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-md-12">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <div class="col-md-12">
+                                        @Html.LabelFor(pr => pr.price, new { @class = "control-label" })
+                                        @Html.TextBoxFor(pr => pr.price, new { @class = "form-control", id = "productPrice", placeholder = "Enter Price" })
+                                        @Html.ValidationMessageFor(pr => pr.price)
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <div class="col-md-12">
+                                        @Html.LabelFor(pr => pr.whileSalePrice, new { @class = "control-label" })
+                                        @Html.TextBoxFor(pr => pr.whileSalePrice, new { @class = "form-control", id = "productWholePrice", placeholder = "Enter Whole Sale Price" })
+                                        @Html.ValidationMessageFor(pr => pr.whileSalePrice)
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <div class="col-md-12">
+                                        @Html.LabelFor(pr => pr.color, new { @class = "control-label" })
+                                        @Html.TextBoxFor(pr => pr.color, new { @class = "form-control", id = "productColor", placeholder = "Enter Color" })
+                                        @Html.ValidationMessageFor(pr => pr.color)
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <div class="col-md-12">
+                                        @Html.LabelFor(pr => pr.quantity, new { @class = "control-label" })
+                                        @Html.TextBoxFor(pr => pr.quantity, new { @class = "form-control", id = "productQuantity", placeholder = "Enter Quantity" })
+                                        @Html.ValidationMessageFor(pr => pr.quantity)
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <div class="col-md-12">
+                                        @Html.LabelFor(pr => pr.car, new { @class = "control-label" })
+                                        @Html.TextBoxFor(pr => pr.car, new { @class = "form-control", id = "productCar", placeholder = "Enter Model" })
+                                        @Html.ValidationMessageFor(pr => pr.car)
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <div class="col-md-12">
+                                        @Html.LabelFor(pr => pr.details, new { @class = "control-label" })
+                                        @Html.TextAreaFor(pr => pr.details, new { @class = "form-control", id = "productDetail", placeholder = "Enter Details" })
+                                        @Html.ValidationMessageFor(pr => pr.details)
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-md-12">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <div class="col-md-12">
+                                        @Html.LabelFor(pr => pr.status, new { @class = "control-label" })
+                                        @Html.EnumDropDownListFor(pr => pr.status, "Select Status", new { @class = "form-control", id = "productStatus" })
+                                        @Html.ValidationMessageFor(pr => pr.status)
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <div class="col-md-12">
+                                        @Html.LabelFor(pr => pr.priority, new { @class = "control-label" })
+                                        @Html.TextBoxFor(pr => pr.priority, new { @class = "form-control", id = "productPriority", placeholder = "Enter Priority" })
+                                        @Html.ValidationMessageFor(pr => pr.priority)
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <div class="col-md-12">
+                                        @Html.LabelFor(pr => pr.image)
+                                        @Html.TextBoxFor(pr => pr.image, new { type = "file", id = "productImage", accept = "image/*" })
+                                        @Html.ValidationMessageFor(pr => pr.image)
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                        <!-- /.box-body -->
+                        <div class="box-footer">
+                            <input type="button" class="btn btn-default" id="productAdd" value="Add">
+                            <input type="button" class="btn btn-info pull-right disabled" id="productUpdate" value="Update">
+                            <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+                        </div>
+                        <!-- /.box-footer -->
+                    }
+
+
+                </div>
+
+                <div class="box">
+                    <div class="box-header">
+                        <h3 class="box-title">Hover Data Table</h3>
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                        <table id="Products" class="table table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Product Name</th>
+                                    <th>Edit</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                            <tfoot>
+                                <tr>
+                                    <th>Product Name</th>
+                                    <th>Edit</th>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                    <!-- /.box-body -->
+                </div>
+                <!-- /.box -->
+            </div>
+            <!--/.col (right) -->
+        </div>
+        <!-- /.row -->
+    </section>
+    <!-- /.content -->
+</div>
+
+
+@section Scripts{
+    @Scripts.Render("~/Scripts/scripts/product.js")
+}

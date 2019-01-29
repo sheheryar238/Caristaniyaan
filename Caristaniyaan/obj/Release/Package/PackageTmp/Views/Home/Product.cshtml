@@ -1,0 +1,188 @@
+﻿@model Caristaniyaan.Dto.productViewModal
+@{
+    ViewBag.Title = "ProductDetail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="banner">
+    <div class="box h-200 bg-image-13">
+        <div class="box-overlay text-left">
+            <div class="container">
+                <h1 class="box-heading box-heading-md p-b-0">Shop Details</h1>
+                <ul class="breadcrumbs">
+                    <li><a href="home.aspx">Home</a></li>
+                    <li><a href="Cart.aspx">Shop</a></li>
+                    <li>@Model.name</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="p-b-0 bg-f5">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="box-1">
+                    <h3 class="m-b-0">Categories</h3>
+                    <ul class="list-g2">
+                        <li><a href="#">Brakes</a></li>
+                        <li class="active"> Wheels </li>
+                        <li><a href="#">Tyres</a></li>
+                        <li><a href="#">Bumpers</a></li>
+                        <li><a href="#">Calipers</a></li>
+                        <li><a href="#">Car Covers</a></li>
+                        <li><a href="#">Carpet Kits</a></li>
+                        <li><a href="#">Components</a></li>
+                        <li><a href="#">Exhaust Tips</a></li>
+                        <li><a href="#">floor Mats</a></li>
+                        <li><a href="#">Grilles</a></li>
+                        <li><a href="#">Hand Brakes</a></li>
+                        <li><a href="#">Liners</a></li>
+                        <li><a href="#">Mirrors</a></li>
+                        <li><a href="#">Set Cover</a></li>
+                    </ul>
+                </div>
+                <div class="m-t-30"></div>
+            </div>
+            <div class="col-sm-9">
+                <div class="box-1">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <!-- Product-item -->
+                            <div class="carousel slide article-slide" id="article-photo-carousel">
+
+                                <!-- Wrapper for slides -->
+                                <div class="carousel-inner cont-slider">
+                                    <div class="item active">
+                                        <img alt="" title="" src="../scripts/DetailsAndRelatedImg/Corolla-Fuel-Filter_wm.jpg" class="w-full">
+                                    </div>
+                                    <div class="item">
+                                        <img alt="" title="" src="../scripts/DetailsAndRelatedImg/5_2_wm.jpg" class="w-full">
+                                    </div>
+                                    <div class="item">
+                                        <img alt="" title=" " src="../scripts/DetailsAndRelatedImg/aqua-toyota-genuine-air-filter_wm.jpg" class="w-full">
+                                    </div>
+                                    <div class="item">
+                                        <img alt="" title="" src="../scripts/DetailsAndRelatedImg/civic-air-filter_wm.jpg" class="w-full">
+                                    </div>
+                                </div>
+                                <br />
+                                <br />
+                                <br />
+                                <br />
+                                <!-- Indicators -->
+                                <ol class="carousel-indicators">
+                                    <li class="active" data-slide-to="0" data-target="#article-photo-carousel">
+                                        <img id="pic" alt="" src="@Model.imageurl">
+                                    </li>
+                                    <li class="" data-slide-to="1" data-target="#article-photo-carousel">
+                                        <img alt="" src="@Model.imageurl">
+                                    </li>
+                                    <li class="" data-slide-to="2" data-target="#article-photo-carousel">
+                                        <img alt="" src="@Model.imageurl">
+                                    </li>
+                                    <li class="" data-slide-to="3" data-target="#article-photo-carousel">
+                                        <img alt="" src="@Model.imageurl">
+                                    </li>
+                                </ol>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+
+                            <!-- Product-item -->
+                            <div class="m-t-xs-30">
+                                <p></p>
+                                <p></p>
+                                <h1 id="name" class="f-30 p-t-0 selected">@Model.name</h1>
+                                <p></p>
+                                <ul class="list list-border text-left m-b-15">
+                                    <li class="color-9"><p class="f-30 color-d00e0e f-bold">Rs <span id="price">@Model.price</span> </p></li>
+                                    <li><b class="d-inline-block w-100">Color:</b> <span id="color">@Model.color</span></li>
+                                    <li><b class="d-inline-block w-100">Car:</b> <span id="car">@Model.car</span></li>
+                                </ul>
+                                <div>
+                                    <b class="d-inline-block w-100">Quantity:</b>
+                                    <input id="quantity" type="number" class="form-item form-item-1x w-80" value="1">
+                                </div>
+                                <input type="button" min="1" value="Add to Cart" class="btn bg-d00e0e m-b-30" onclick="addToCart(@Model.Id)" />
+                                @*<a href="#" class="btn bg-d00e0e m-b-30">Add to cart</a>*@
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="m-t-30">
+                    <h3 class="f-25 p-t-0 line-default">DESCTIPTION</h3>
+                    <div class="box-1"><div>Product Description</div>@Model.details</div>
+                </div>
+                @*<div class="list-n-bg m-t-30">
+                    <div class="row grid-table">
+                        <div class="col-sm-6 grid-item-2"><b>Wheelbase</b></div>
+                        <div class="col-sm-6 grid-item-2">2,805 (110)</div>
+                    </div>
+                    <div class="row grid-table">
+                        <div class="col-sm-6 grid-item-2"><b>Lenght</b></div>
+                        <div class="col-sm-6 grid-item-2">4,855 (191.1)</div>
+                    </div>
+                    <div class="row grid-table">
+                        <div class="col-sm-6 grid-item-2"><b>Width</b></div>
+                        <div class="col-sm-6 grid-item-2">1,860 (73.2)</div>
+                    </div>
+                    <div class="row grid-table">
+                        <div class="col-sm-6 grid-item-2"><b>Height</b></div>
+                        <div class="col-sm-6 grid-item-2">1,460 (57.5)</div>
+                    </div>
+                </div>*@
+            </div>
+        </div>
+    </div>
+</section>
+<section class="product">
+    <div class="container">
+        <div class="title-group">
+            <h2 class="line-default line-default-3">Product related</h2>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 col-md-3">
+                <div class="box">
+                    <a class="box-img" href="ProductDetails.aspx"><img src="../scripts/DetailsAndRelatedImg/5_2_wm.jpg" alt="image"></a>
+                    <div class="box-body">
+                        <h4 class="box-heading"><a href="#" class="border-left-5">Toyota Corolla Guard Oil Filter GDO-110A</a></h4>
+                        <p class="color-9"></p>
+                    </div>
+                    <div class="box-footer"><div class="box-price">₨ 1,300</div></div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-3">
+                <div class="box">
+                    <a class="box-img" href="ProductDetails.aspx"><img src="../scripts/DetailsAndRelatedImg/aqua-toyota-genuine-air-filter_wm.jpg" alt="image"></a>
+                    <div class="box-body">
+                        <h4 class="box-heading"><a href="#" class="border-left-5">Genuine Toyota Aqua Air Filter 04152-YZZA6</a></h4>
+                        <p class="color-9"></p>
+                    </div>
+                    <div class="box-footer"><div class="box-price">₨ 2,400</div></div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-3">
+                <div class="box">
+                    <a class="box-img" href="ProductDetails.aspx"><img src="../scripts/DetailsAndRelatedImg/Corolla-Fuel-Filter_wm.jpg" alt="image"></a>
+                    <div class="box-body">
+                        <h4 class="box-heading"><a href="#" class="border-left-5">Toyota Corolla Guard Oil Filter GDO-110A</a></h4>
+                        <p class="color-9"></p>
+                    </div>
+                    <div class="box-footer"><div class="box-price">₨ 450</div></div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-3">
+                <div class="box">
+                    <a class="box-img" href="ProductDetails.aspx"><img src="../scripts/DetailsAndRelatedImg/gdo-133_wm.jpg" alt="image"></a>
+                    <div class="box-body">
+                        <h4 class="box-heading"><a href="#" class="border-left-5">Suzuki Daihatsu Guard Oil Filter GDO-133</a></h4>
+                        <p class="color-9"></p>
+                    </div>
+                    <div class="box-footer"><div class="box-price">₨ 400</div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

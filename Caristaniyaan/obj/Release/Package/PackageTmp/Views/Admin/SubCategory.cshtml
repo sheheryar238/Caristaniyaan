@@ -1,0 +1,177 @@
+﻿@model Caristaniyaan.Dto.subCategoryViewModal
+@{
+    ViewBag.Title = "SubCategory";
+    Layout = "~/Views/Shared/_adminLayout.cshtml";
+}
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            Sub Category
+            <small>Add or view all your sub categories</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="@Url.Action("Index","Admin")"><i class="fa fa-dashboard"></i>Home</a></li>
+            <li><a href="@Url.Action("SubCategory","Admin")">Sub Category</a></li>
+        </ol>
+    </section>
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <!-- right column -->
+            <div class="col-md-12">
+                <!-- Horizontal Form -->
+                <div class="box box-info" id="formBox">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">Sub Category</h3>
+                    </div>
+                    <div class="alert alert-success collapse fade">
+                        <button type="button" class="close" data-dismiss="alert">×</button>
+                        <div class="alert-text">Successfully completed your action.</div>
+                    </div>
+                    <div class="alert alert-danger collapse fade">
+                        <button type="button" class="close" data-dismiss="alert">×</button>
+                        <div class="alert-text">Successfully completed your action.</div>
+                    </div>
+                    <!-- /.box-header -->
+                    <!-- form start -->
+                    @using (Html.BeginForm("Add", "SubCategory", FormMethod.Post, new { enctype = "multipart/form-data", id = "subCatForm", @class = "form-horizontal" }))
+                    {
+                        <div class="box-body">
+                            <div class="form-group">
+                                @Html.LabelFor(c => c.name, new { @class = "col-sm-2 control-label" })
+                                <div class="col-md-6">
+                                    @Html.TextBoxFor(c => c.name, new { @class = "form-control", id = "subCatName", placeholder = "Enter sub category" })
+                                    @Html.ValidationMessageFor(c => c.name)
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(c => c.CategoryId, new { @class = "col-sm-2 control-label" })
+                                <div class="col-md-6">
+                                    @Html.DropDownListFor(c => c.CategoryId, new SelectList(Model.categories, "Id", "name"), "-- Select --", new { @class = "form-control", id = "catName"})
+                                    @Html.ValidationMessageFor(c => c.CategoryId)
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.box-body -->
+                        <div class="box-footer">
+                            <input type="button" class="btn btn-default" id="subCatNameAdd" value="Add">
+                            <input type="button" class="btn btn-info pull-right disabled" id="subCatNameUpdate" value="Update">
+                            <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+                        </div>
+                        <!-- /.box-footer -->
+                    }
+
+
+                </div>
+
+                <div class="box">
+                    <div class="box-header">
+                        <h3 class="box-title">Hover Data Table</h3>
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                        <table id="SubCategories" class="table table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Sub Category Name</th>
+                                    <th>Category Name</th>
+                                    <th>Edit</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                            <tfoot>
+                                <tr>
+                                    <th>Sub Category Name</th>
+                                    <th>Category Name</th>
+                                    <th>Edit</th>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                    <!-- /.box-body -->
+                </div>
+                <!-- /.box -->
+            </div>
+            <!--/.col (right) -->
+        </div>
+        <!-- /.row -->
+    </section>
+    <!-- /.content -->
+</div>
+@*<div class="col-md-12">
+        <div class="page-wrapper p-b-100 font-poppins">
+            <div class="wrapper">
+                <div class="card card-4">
+                    <div class="card-body form-well">
+                        <div class="alert alert-success collapse fade">
+                            <button type="button" class="close" data-dismiss="alert">×</button>
+                            <div class="alert-text">Successfully completed your action.</div>
+                        </div>
+                        <div class="alert alert-danger collapse fade">
+                            <button type="button" class="close" data-dismiss="alert">×</button>
+                            <div class="alert-text">Successfully completed your action.</div>
+                        </div>
+                        <h2 class="title" id="header">Add New Sub-Category</h2>
+                        @using (Html.BeginForm("Add", "SubCategory", FormMethod.Post, new { enctype = "multipart/form-data", id = "subcatForm" }))
+                        {
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="input-group">
+                                        @Html.LabelFor(c => c.name)
+                                        @Html.TextBoxFor(c => c.name, new { @class = "input--style-4", id = "subcatName", placeholder = "Enter sub category" })
+                                        @Html.ValidationMessageFor(c => c.name)
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="input-group">
+                                        <label class="label">@Html.LabelFor(c => c.CategoryId)</label>
+                                        <div class="rs-select2 js-select-simple select--no-search">
+                                            @Html.DropDownListFor(c => c.CategoryId, new SelectList(Model.categories, "Id", "name"), "-- Select --", new { id = "categoryID" })
+                                            @Html.ValidationMessageFor(c => c.CategoryId)
+                                            <div class="select-dropdown"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                        <div class="p-t-15">
+                            <button class="btn btn--radius-2 btn--green" id="subcatNameAdd">Add</button>
+                            <button class="btn btn--radius-2 btn--blue" id="subcatNameUpdate">Update</button>
+                            <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-12">
+        <div class="page-wrapper p-b-100 font-poppins">
+            <div class="wrapper">
+                <div class="card card-4">
+                    <div class="card-body">
+                        <h2>Sub Category</h2>
+                        <table id="SubCategories" class="table table-bordered table-responsive" style="width:100%;">
+                            <thead class="bg-table">
+                                <tr>
+                                    <th>Sub Category Name</th>
+                                    <th>Category Name</th>
+                                    <th>Edit</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>*@
+
+@section Scripts{
+    @Scripts.Render("~/Scripts/scripts/subcategory.js")
+}

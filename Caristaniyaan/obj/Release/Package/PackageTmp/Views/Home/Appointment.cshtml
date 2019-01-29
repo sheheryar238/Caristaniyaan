@@ -1,0 +1,67 @@
+﻿@model Caristaniyaan.Dto.appointemnt
+@{
+    ViewBag.Title = "Appointment";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="banner">
+    <div class="box h-200 bg-image-13">
+        <div class="box-overlay text-left">
+            <div class="container">
+                <h1 class="box-heading box-heading-md p-b-0">Appointment</h1>
+                <ul class="breadcrumbs">
+                    <li><a href="home.aspx">Home</a></li>
+                    <li>Appointment</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="bg-pri-c relative bg-f5">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 col-sm-offset-3">
+                <div class="box-1 p-50">
+                    <div class="alert alert-success collapse fade">
+                        <button type="button" class="close" data-dismiss="alert">×</button>
+                        <div class="alert-text">Default Success Message.</div>
+                    </div>
+                    <div class="alert alert-danger collapse fade">
+                        <button type="button" class="close" data-dismiss="alert">×</button>
+                        <div class="alert-text">Default Error Message.</div>
+                    </div>
+                    <!-- Nav tabs --><!-- Tab panes -->
+                    <h3 class="line-default f-30 selected">Make An Appointment</h3>
+                    @using (Html.BeginForm("Add", "Requests", FormMethod.Post, new { enctype = "multipart/form-data", id = "appointmentForm", @class = "form-horizontal" }))
+                    {
+                        @Html.ValidationMessageFor(c => c.modalYear)
+                        @Html.TextBoxFor(c => c.modalYear, new { @class = "form-item", id = "modalYear", placeholder = "Modal Year" })
+
+                        @Html.ValidationMessageFor(c => c.carInfo)
+                        @Html.TextBoxFor(c => c.carInfo, new { @class = "form-item", id = "carInfo", placeholder = "Car info" })
+
+                        @Html.ValidationMessageFor(c => c.name)
+                        @Html.TextBoxFor(c => c.name, new { @class = "form-item", id = "name", placeholder = "Your name" })
+
+                        @Html.ValidationMessageFor(c => c.phonenumber)
+                        @Html.TextBoxFor(c => c.phonenumber, new { @class = "form-item", id = "phone", placeholder = "Phone" })
+
+                        @Html.ValidationMessageFor(c => c.email)
+                        @Html.TextBoxFor(c => c.email, new { @class = "form-item", id = "email", placeholder = "Email" })
+
+                        @Html.ValidationMessageFor(c => c.message)
+                        @Html.TextAreaFor(c => c.message, new { @class = "form-item", id = "message", placeholder = "Message" })
+
+
+                        <input type="button" class="btn bg-dc4c46" id="appointmentbtn" value="Submit">
+                        <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+}

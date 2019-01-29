@@ -1,0 +1,189 @@
+﻿<!DOCTYPE html>
+<html lang="zxx">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CarAstaniyan</title>
+    <link rel="icon" href="~/Images/CarAstaniyanFavicon.jpeg">
+    @Styles.Render("~/Content/css")
+</head>
+<body>
+
+
+
+    <div class="preloader"><i class="fa fa-spinner"></i></div>
+    <div class="menu-rs">
+        <div class="menu-wrap">
+            <div class="r-mv">
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="menu-mb">
+                <li class="dropdown">
+                    <a href="@Url.Action("Index","Home")" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Home</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="home.aspx">Home</a></li>
+
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="@Url.Action("CarsDefault","Home")" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Cars</a>
+                    <ul class="dropdown-menu"></ul>
+                </li>
+                <li class="dropdown">
+                    <a href="@Url.Action("Index","Home")" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Products</a>
+                    <ul class="dropdown-menu"></ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Information</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="@Url.Action("Contact","Home")">Technical Support</a></li>
+                        <li><a href="@Url.Action("Partners","Home")">Partners</a></li>
+                        <li><a href="@Url.Action("TrackShipment","Home")">Track Order</a></li>
+                        <li><a href="@Url.Action("TermCondition","Home")">Terms & Condition</a></li>
+                        <li><a href="@Url.Action("PrrivacyPolicy","Home")">Privacy Policy</a></li>
+
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <header class="header-fixed">
+        <div class="main-header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-5 col-sm-2">
+                        <a href="@Url.Action("About","Home")" class="logo">
+                            <img src="~/Images/CarAstaniyanLogo.png" alt="image">
+                        </a>
+                    </div>
+                    <div class="col-sm-8 hidden-xs">
+                        <nav class="menu-nav pull-right">
+                            <ul class="menu">
+                                <li>
+                                    <a href="@Url.Action("Index","Home")">Home</a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("CarsDefault","Home")">Cars</a>
+                                    <ul class="sub-menu"></ul>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("Index","Home")">Products</a>
+                                    <ul class="sub-menu"></ul>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("About","Home")">Our Services</a>
+                                    <ul class="sub-menu"></ul>
+                                </li>
+                                <li>
+                                    <a href="#">Information</a>
+                                    <ul class="sub-menu">
+                                        <li><a href="@Url.Action("Contact","Home")">Technical Support</a></li>
+                                        <li><a href="@Url.Action("Partners","Home")">Partners</a></li>
+                                        <li><a href="@Url.Action("TrackShipment","Home")">Track Order</a></li>
+                                        <li><a href="@Url.Action("TermCondition","Home")">Terms & Condition</a></li>
+                                        <li><a href="@Url.Action("PrrivacyPolicy","Home")">Privacy Policy</a></li>
+
+                                    </ul>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="col-xs-7 col-sm-2 text-right">
+                        <ul class="list list-inline m-t-15">
+                            <li>
+                                <i class="icon-t icon-search fa fa-search"></i>
+                            </li>
+                            <li>
+                                <div class="cart dropdown ">
+                                    <a href="#" class="cart-item dropdown-toggle" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <span id="totalItems">2</span>
+                                        <i class="icon-t fa fa-shopping-bag"></i>
+                                    </a>
+                                    <ul id="cartProducts" class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                        <li class="table-div">
+                                            <ul class="table-content">
+                                                <li class="row m-0">
+                                                    <div class="col col-xs-6"><strong>Total:</strong></div>
+                                                    <div id="grandTotal" class="col col-xs-6 text-right f-bold">$1028.00</div>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <p>
+                                                <br>
+                                                <a href="@Url.Action("Checkout","Home")" class="btn bg-3">Checkout</a>
+                                                <a href="@Url.Action("Cart","Home")" class="btn bg-dc4c46">Cart</a>
+                                            </p>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="menu-btn">
+                                <i class="icon-t fa fa-bars"></i>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="search-box">
+                    <input type="text" class="form-item search-txt" placeholder="Enter you keyword...">
+                    <button class="search-btn"><i class="fa fa-search"></i></button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+
+
+
+
+
+    <div>
+        @RenderBody()
+
+        <footer class="customfooter-distributed">
+
+            <div class="customfooter-left">
+
+                <h3>
+                    <a href="@Url.Action("About","Home")" class="logo">
+                        <img src="~/Images/CarAstaniyanLogo.png" alt="image" class="m-t-80 m-t-xs-0">
+                    </a>
+                </h3>
+
+                <p class="customfooter-links">
+                    <a href="@Url.Action("Index","Home")">Home</a>
+                    ·
+                    <a href="@Url.Action("About","Home")">About-Us</a>
+                    ·
+                    <a href="@Url.Action("Appointment","Home")">Get An Appointment</a>
+                    ·
+                    <a href="@Url.Action("Autopartondemand","Home")">Order a Part</a>
+                    ·
+                    <a href="@Url.Action("Contact","Home")">Contact</a>
+                </p>
+
+                <p class="customfooter-company-name">© 2019 Designed by <a href="#" class="color-a">ChakriPedia</a>. All rights reserved</p>
+
+                <div class="customfooter-icons">
+
+                    <a href="https://www.facebook.com/"><i class="fa fa-facebook"></i></a>
+                    <a href="https://www.twitter.com/"><i class="fa fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/"><i class="fa fa-instagram"></i></a>
+                    <a href="https://www.whatsapp.com/"><i class="fa fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </footer>
+
+
+
+
+        @Scripts.Render("~/bundles/scripts")
+        @RenderSection("Scripts", false/*required*/)
+
+
+    </div>
+</body>
+</html>
