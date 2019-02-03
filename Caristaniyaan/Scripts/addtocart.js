@@ -123,6 +123,10 @@ function calculateGrandTotal() {
         }
     }
     document.getElementById("grandTotal").innerText = "Rs " + gt;
+    if (document.getElementById("subTotal")) {
+        document.getElementById("subTotal").innerText = "Rs " + gt;
+        document.getElementById("Total").innerText = "Rs " + gt;
+    }
 }
 
 function calculateTotalItems() {

@@ -48,7 +48,7 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                @Html.LabelFor(c => c.name, new { @class = "col-sm-2 control-label" })
+                                @Html.LabelFor(c => c.SubCategory, new { @class = "col-sm-2 control-label" })
                                 <div class="col-md-6">
                                     @Html.DropDownListFor(c => c.SubCategoryId, new SelectList(Model.subcategories, "Id", "name"), "-- Select --", new { @class = "form-control", id = "subCatName" })
                                     @Html.ValidationMessageFor(c => c.SubCategoryId)

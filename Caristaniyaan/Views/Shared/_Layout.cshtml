@@ -64,10 +64,10 @@
                                 <li>
                                     <a href="@Url.Action("Index","Home")">Home</a>
                                 </li>
-                                <li>
+                                @*<li>
                                     <a href="@Url.Action("CarsDefault","Home")">Cars</a>
                                     <ul class="sub-menu"></ul>
-                                </li>
+                                </li>*@
                                 <li>
                                     <a href="@Url.Action("Index","Home")">Products</a>
                                     <ul class="sub-menu"></ul>
@@ -95,10 +95,10 @@
                             <li>
                                 <i class="icon-t icon-search fa fa-search"></i>
                             </li>
-                            <li>
+                            <li id="cart-btn">
                                 <div class="cart dropdown ">
                                     <a href="#" class="cart-item dropdown-toggle" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <span id="totalItems">2</span>
+                                        <span id="totalItems">0</span>
                                         <i class="icon-t fa fa-shopping-bag"></i>
                                     </a>
                                     <ul id="cartProducts" class="dropdown-menu" aria-labelledby="dropdownMenu2">
@@ -106,7 +106,7 @@
                                             <ul class="table-content">
                                                 <li class="row m-0">
                                                     <div class="col col-xs-6"><strong>Total:</strong></div>
-                                                    <div id="grandTotal" class="col col-xs-6 text-right f-bold">$1028.00</div>
+                                                    <div id="grandTotal" class="col col-xs-6 text-right f-bold">Rs 0</div>
                                                 </li>
                                             </ul>
                                         </li>

@@ -54,7 +54,7 @@
                                 <div class="box">
                                     <a class="box-img" href="@Url.Action("Product/"+prod.Id,"Home")"><img src="@prod.image_url" alt="image"></a>
                                     <div class="box-body">
-                                        <h4 class="box-heading"><a href="ProductDetails.aspx" class="border-left-5">@prod.name</a></h4>
+                                        <h4 class="box-heading"><a href="@Url.Action("Product/"+prod.Id,"Home")" class="border-left-5">@prod.name</a></h4>
                                         <p class="color-9">@prod.model</p>
                                     </div>
                                     <div class="box-footer"><div class="box-price">@prod.price</div></div>

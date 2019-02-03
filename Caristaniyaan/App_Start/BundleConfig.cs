@@ -31,7 +31,7 @@ namespace Caristaniyaan
                       "~/Scripts/jquery.magnific-popup.min.js",
                       "~/Scripts/ProductImageSlider.js",
                       "~/Scripts/addtocart.js",
-                      "~/Scripts/script.js"));
+					  "~/Scripts/script.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/jquery-ui.css",

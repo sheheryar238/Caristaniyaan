@@ -66,9 +66,12 @@ namespace Caristaniyaan.Dto
 
     public enum Province
     {
-        Rawalpindi = 1,
-        Islamabad = 2
-    }
+        Punjab = 1,
+        Sindh = 2,
+		Balochistan = 3,
+		Kpk = 4,
+		GilgitBaltistan = 5
+	}
 
     public enum Country
     {
